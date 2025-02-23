@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Mol-LLaMA: Towards General Understanding of Molecules in Large Molecular Language Model">
+  <meta name="keywords" content="Large molecular language model, molecular understanding, LLM, Mol-LLaMA">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mol-LLaMA: Towards General Understanding of Molecules in Large Molecular Language Model</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <style>
+    .hero-body {
+      padding-bottom: 1.0rem;
+    }
+    .section.reduced-top-margin {
+      margin-top: -1.5rem;
+    }
+    .publication-links {
+      margin-bottom: 0;
+    }
+    @media only screen and (max-width: 768px) {
+    .hide-on-mobile {
+      display: none !important;
+    }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="container has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <img id="painting_icon" width="4%" src="figure/icon.png"> Mol-LLaMA: Towards General Understanding of<br>Molecules in Large Molecular Language Model
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <div class="author-block">
+              <a href="https://dongkikim95.github.io">Dongki Kim</a><sup>1</sup>,
+            </div>
+            <div class="author-block">
+              <a>Wonbin Lee</a><sup>1</sup>,
+            </div>
+            <div class="author-block">
+              <a href="http://www.sungjuhwang.com/">Sung Ju Hwang</a><sup>1,2</sup>
+            </div>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>KAIST,</span>
+            <span class="author-block"><sup>2</sup>DeepAuto.ai</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2502.13449" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/DongkiKim95/Mol-LLaMA" target="_blank"
+                class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="container">
+        <img src="figure/example_main.JPG" alt="MY ALT TEXT" width="100%" height="100%"/>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p class="is-size-6">
+              We propose <strong>Mol-LLaMA</strong>, a large molecular language model that grasps the general knowledge centered on molecules via multi-modal instruction tuning. To this end, we design key data types that encompass the fundamental features of molecules, incorporating essential knowledge from molecular structures. In addition, to improve understanding of molecular features, we introduce a module that integrates complementary information from different molecular encoders, leveraging the distinct advantages of different molecular representations. 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-3">Molecular Reasoning Examples</h3>
+        </div>
+      </div>
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item">
+            <img src="figure/reasoning_example1.JPG" alt="MY ALT TEXT"/>
+            <h2 class="subtitle has-text-centered"></h2>
+          </div>
+          <div class="item">
+            <img src="figure/reasoning_example2.JPG" alt="MY ALT TEXT"/>
+            <h2 class="subtitle has-text-centered"></h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-3">Instruction Dataset</h3>
+          <div class="content has-text-justified">
+            <p>
+              By leveraging PubChem dataset and GPT-4o, we construct an instruction dataset that entails the core knowledge of molecules encompassing structural, chemical, and chemical features, establishing 77k in detailed structrual descriptions, 147k in structure-to-feature relationship explanations, and 60k in comprehensive conversations.
+            </p>
+          </div>
+          
+          <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item">
+                <img src="figure/data_example1.JPG" alt="MY ALT TEXT" width="100%" height="100%"/>
+                <h2 class="subtitle has-text-centered"></h2>
+              </div>
+              <div class="item">
+                <img src="figure/data_example2.JPG" alt="MY ALT TEXT" width="100%" height="100%"/>
+                <h2 class="subtitle has-text-centered"></h2>
+              </div>
+              <div class="item">
+                <img src="figure/data_example3.JPG" alt="MY ALT TEXT" width="100%" height="100%"/>
+                <h2 class="subtitle has-text-centered"></h2>
+              </div>
+              <div class="item">
+                <img src="figure/data_example4.JPG" alt="MY ALT TEXT" width="100%" height="100%"/>
+                <h2 class="subtitle has-text-centered"></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-3">Model Architecture</h3>
+          <div class="content has-text-justified">
+            <p>
+            Mol-LLaMA is built on both 2D and 3D molecular encoders to capture the complementary information from different molecular representations. We propose a blending module that integrates the information from different molecular encoders based on the cross-attention, leveraging the distinct advantages of different molecular representations.
+            </p>
+          </div>
+          <img src="figure/model_architecture.jpg" alt="MY ALT TEXT"
+          style="display: block; margin: 0 auto; width: 75%; height: auto;"
+          />
+        </div>
+          
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h3 class="title is-3">Results</h3>
+          <h4 class="title is-4">Evaluation of General Understanding of Molecules</h4>
+          <img src="figure/quantitative_result.JPG" alt="MY ALT TEXT"
+          style="display: block; margin: 0 auto; width: 100%; height: auto;"
+          />
+          <div class="content has-text-justified">
+            <p>
+              We evaluate Mol-LLaMA on 100 unseen molecules by asking general questions about the structural, chemical, and biological features of a given molecule. Relative scores of Mol-LLaMA compared to GPT-4o are beyond 1 for all criteria, indicating that it is superior to GPT-4o in the understanding of general features of molecules.
+            </p>
+          </div>
+          <h4 class="title is-4">Molecular Property Prediction</h4>
+          <img src="figure/pampa.JPG" alt="MY ALT TEXT"
+          style="display: block; margin: 0 auto; width: 100%; height: auto;"
+          />
+          <div class="content has-text-justified">
+            <p>
+              We evaluate Mol-LLaMA on PAMPA task where the task is to classify whether the given molecule has a high permeability or a low-to-moderate permeability to the artificial membrane. Mol-LLaMA achieves high accuracy outperforming GPT-4o, while showing high fidelity and helpfulness scores, demonstrating that it is able to accurately predict the molecular property with helpful explanations.
+            </p>
+          </div>
+          <img src="figure/pampa_example.JPG" alt="MY ALT TEXT"
+          style="display: block; margin: 0 auto; width: 100%; height: auto;"
+          />
+          <div class="content has-text-justified">
+            <p>
+              Mol-LLaMA provides the prediction of the molecular property with the explanation of the molecular features that contribute to the prediction, which can be helpful for the users to understand the prediction and the underlying reasons.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{kim2025molllama,
+        title={Mol-LLaMA: Towards General Understanding of Molecules in Large Molecular Language Model},
+        author={Dongki Kim and Wonbin Lee and Sung Ju Hwang},
+        booktitle={arXiv:2502.13449},
+        year={2025}
+    }</code></pre>
+    </div>
+  </section>
+
+</body>
+</html>
